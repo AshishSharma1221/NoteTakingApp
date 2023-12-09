@@ -1,11 +1,10 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { AuthProvider } from './navigation/AuthProvider';
 import HomeScreen from './screens/HomeScreen';
 import AddNoteScreen from './screens/AddNoteScreen';
-
-import { initializeApp, getApps } from 'firebase/app';
+import LoginScreen from './screens/LoginScreen';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 
@@ -22,6 +21,20 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
  
 
+// export default function App() {
+//   return (
+//     <AuthProvider>
+//       <NavigationContainer>
+//         <Stack.Navigator initialRouteName="Home">
+//           <Stack.Screen name="Home" component={HomeScreen} />
+//           <Stack.Screen name="AddNote" component={AddNoteScreen} />
+//           <Stack.Screen name="Login" component={LoginScreen} />
+//         </Stack.Navigator>
+//       </NavigationContainer>
+//     </AuthProvider>
+//   );
+// }
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -36,11 +49,4 @@ export default function App() {
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
